@@ -14,10 +14,6 @@ import re
 # dimensions of our images.
 img_width, img_height = 60, 30
 
-# train_data_dir = '/home/mo/pythonCode/train'
-# validation_data_dir = '/home/mo/pythonCode/test'
-# train_class = '/home/mo/pythonCode/trainClass'
-# validation_class = '/home/mo/pythonCode/testClass'
 crop_weights = './cropWeights.h5'
 class_weights = './classWeights.h5'
 crop_model = './cropModel.h5'
@@ -39,8 +35,8 @@ headers = {
 }
 
 data = {
-    'email': 'wyx402508613@live.com',
-    'password': 'wyx2371923',
+    'email': 'your email',
+    'password': '*****************',
 }
 
 mapList = ['3','5','6','7','8','9','A','B','D','E','F','G','H','J','K','M','N','P','R','S','T','U','V','X','Y']
@@ -179,10 +175,6 @@ def checkAndReplace(index,target,distance):
                     state *=1
 
 if __name__ == '__main__':
-    # cropModel = CNN(train_data_dir, validation_data_dir, 2)
-    # cropModel.save_weights('crop.h5')
-    # classModel = CNN(train_class, validation_class, 25)
-    # classModel.save_weights('class.h5')
     cropModel = load_model(crop_model)
     classModel = load_model(class_model)
     state = login()
