@@ -181,7 +181,7 @@ if __name__ == '__main__':
     while(state.status_code != 200):
         time.sleep(0.2)
         state = login()
-    print('homePage:')
-    print(state.text)
+    # print('homePage:')
+    # print(state.text)
 
 
