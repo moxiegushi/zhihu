@@ -8,7 +8,7 @@ import requests
 import numpy as np
 import os
 from PIL import Image
-import shutil 
+import shutil
 import re
 
 # dimensions of our images.
@@ -45,13 +45,13 @@ mapArray = np.array(mapList)
 
 
 def login():
-    global s 
+    global s
     s = requests.session()
     homeReq = s.get(url, headers=headers)
     homeSoup = BeautifulSoup(homeReq.text, 'lxml')
     xsrf = homeSoup.find('input',{'name':'_xsrf','type':'hidden'})['value']
     data['_xsrf'] = xsrf
-    timeStamp = int(time.time()*1000)    
+    timeStamp = int(time.time()*1000)
     captchaUrl = url + '/captcha.gif?=' + str(timeStamp)
     f = open('captcha.gif','wb')
     f.write(s.get(captchaUrl, headers=headers).content)
@@ -110,8 +110,8 @@ def predict(cropModel,classModel):
     target.sort()
     if os.path.exists('./tobe_classfied'):
         shutil.rmtree('./tobe_classfied')
-        os.mkdir('tobe_classfied')
-        os.mkdir('./tobe_classfied/data')
+    os.mkdir('tobe_classfied')
+    os.mkdir('./tobe_classfied/data')
     imList = []
     for each in target:
         imList.append(str(each) + '.png')
